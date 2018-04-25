@@ -2,7 +2,7 @@ section .bss
 x resd 1
 
 section .data
-a db 11011111b
+a db 10001010b
 c dw 0
 
 section .text
@@ -54,7 +54,7 @@ NOTX0_2:	test ax, 00000001b
 _start:
 main:   	mov ax,[a]  
 			mov cx, [c]
-			jmp short ISX7_1
+			jmp short ISX1
 		
 end:	    mov ebx,0   ;exitcode 0
         	mov eax,1   ;exit
@@ -62,3 +62,4 @@ end:	    mov ebx,0   ;exitcode 0
 
 
 ;(x7&~x6&x3&x1) V (x6&x4&x2&x1&~x0) V (~x7&x6&x3&x1) .
+;X1&( X3&( (x7&~x6) V (~x7&x6)) V (x6&x4&x2&~x0) )
