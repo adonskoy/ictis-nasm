@@ -88,7 +88,8 @@ _start:
     mov     ecx, lpBuffer3
     mov     edx, Buf_Len3
     call    ReadText
-    mov     edx, lpBuffer3
+    
+    mov     edx, lpBuffer3      ; Строка в число
     call    atoi
     mov     [pointer], eax
 
